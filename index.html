@@ -25,8 +25,36 @@
                     return "Scissors";
                     break;
             }
-
         }
+
+        function playRound(playerSelection, computerSelection) {
+
+            //make player selection case insensitive
+            playerSelection = playerSelection.toLowerCase();
+
+            // determine the winner
+            if (playerSelection === "rock" && computerSelection === "Scissors") {
+                result = "You Win! Rock beats Scissors";
+            } else if (playerSelection === "paper" && computerSelection === "Rock") {
+                result = "You Win! Paper beats Rock";
+            } else if (playerSelection === "scissors" && computerSelection === "Paper") {
+                result = "You Win! Scissors beat Paper";
+            } else if (computerSelection === "Rock" && playerSelection === "scissors") {
+                result = "You Lose! Rock beats Scissors";
+            } else if (computerSelection === "Paper" && playerSelection === "rock") {
+                result = "You Lose! Paper beats Rock";
+            } else if (computerSelection === "Scissors" && playerSelection === "paper") {
+                result = "You Lose! Scissors beat Paper";
+            } else if (computerSelection.toLowerCase() === playerSelection) {
+                result = "It's a draw!";
+            }
+            else {
+                result = "The player's choice is not supported, please enter either Rock, paper or scissors";
+            } 
+
+            return result;
+        }
+
     </script>
     
 </body>
