@@ -34,25 +34,66 @@
 
             // determine the winner
             if (playerSelection === "rock" && computerSelection === "Scissors") {
-                result = "You Win! Rock beats Scissors";
+                console.log("You Win! Rock beats Scissors");
+                result = 1;
             } else if (playerSelection === "paper" && computerSelection === "Rock") {
-                result = "You Win! Paper beats Rock";
+                console.log("You Win! Paper beats Rock");
+                result = 1;
             } else if (playerSelection === "scissors" && computerSelection === "Paper") {
-                result = "You Win! Scissors beat Paper";
+                console.log("You Win! Scissors beat Paper");
+                result = 1;
             } else if (computerSelection === "Rock" && playerSelection === "scissors") {
-                result = "You Lose! Rock beats Scissors";
+                console.log("You Lose! Rock beats Scissors");
+                result = 0;
             } else if (computerSelection === "Paper" && playerSelection === "rock") {
-                result = "You Lose! Paper beats Rock";
+                console.log("You Lose! Paper beats Rock");
+                result = 0;
             } else if (computerSelection === "Scissors" && playerSelection === "paper") {
-                result = "You Lose! Scissors beat Paper";
+                console.log("You Lose! Scissors beat Paper");
+                result = 0;
             } else if (computerSelection.toLowerCase() === playerSelection) {
-                result = "It's a draw!";
+                console.log("It's a draw!");
+                result = -1;
             }
             else {
-                result = "The player's choice is not supported, please enter either Rock, paper or scissors";
+                console.log("The player's choice is not supported, please enter either Rock, paper or scissors");
+                result = -1;
             } 
 
             return result;
+        }
+
+        function game() {
+            roundResult = -1;
+            playerScore = 0;
+            computerScore = 0;
+            // Repeat this process 5 times
+            for (let i = 0; i < 5; i++) {
+                // Prompt user for a choice
+                // Play a round                
+                // If the player chooses something not supported, play again
+                // If there is a draw, play again
+                do {
+                    userInput = prompt("Choose your fighter! (Rock, paper or scissors):", 
+                                    "");
+                    roundResult = playRound(userInput, getComputerChoice());
+                } while (roundResult === -1);
+
+                // Store result
+                if (roundResult === 0) {
+                    computerScore++;
+                } else if (roundResult === 1) {
+                    playerScore++;
+                }
+
+            }
+            
+            // Show game result
+            console.log(`The game has ended! 
+                The player has a total score of ${playerScore}
+                The computer has a total score of ${computerScore}`);
+
+            console.log(playerScore > computerScore ? "The player wins!" : "The computer wins!");
         }
 
     </script>
