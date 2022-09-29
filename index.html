@@ -70,24 +70,15 @@
             return result;
         }
 
-        function game() {
-            roundResult = -1;
+        function repeatGame(repeatAmount) {
             playerScore = 0;
             computerScore = 0;
-            // Repeat this process 5 times
-            for (let i = 0; i < 5; i++) {
-                // Prompt user for a choice
-                // Play a round                
-                // If the player chooses something not supported, play again
-                // If there is a draw, play again
-                do {
-                    userInput = prompt(
-                        "Choose your fighter! (Rock, paper or scissors):" ,""
-                        );
-                    roundResult = playRound(userInput, getComputerChoice());
-                } while (roundResult === -1);
 
-                // Store result
+
+            for (let i = 0; i < repeatAmount; i++) {
+                
+                roundResult = game();
+
                 if (roundResult === 0) {
                     computerScore++;
                 } else if (roundResult === 1) {
@@ -96,13 +87,25 @@
 
             }
             
-            // Show game result
             console.log(`The game has ended! 
                 The player has a total score of ${playerScore}
                 The computer has a total score of ${computerScore}`);
 
             console.log(playerScore > computerScore ? "The player wins!" 
                                                     : "The computer wins!");
+
+
+        }
+
+        function game() {  
+            do {
+                userInput = prompt(
+                    "Choose your fighter! (Rock, paper or scissors):" ,""
+                    );
+                roundResult = playRound(userInput, getComputerChoice());
+            } while (roundResult === -1);
+
+            return roundResult; 
         }
 
     </script>
