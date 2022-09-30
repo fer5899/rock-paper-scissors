@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="./style.css">
     <script src="./functions.js" defer></script>
     <script src="./eventListeners.js" defer></script>
     <meta charset="UTF-8">
@@ -10,24 +11,24 @@
 </head>
 <body>
        
-    <div class="container">
-        <button class="rock">Rock</button>
-        <button class="paper">Paper</button>
-        <button class="scissors">Scissors</button>
+    <div id="button-container" class="container">
+        <button id="rock">Rock</button>
+        <button id="paper">Paper</button>
+        <button id="scissors">Scissors</button>
     </div>
 
-    <div class="results-container">
-        <div class="scores-container">
+    <div id="results-container" class="container">
+        <div id="scores-container" class="subcontainer">
             <div class="score">
                 <h2 id="player-score" class="score">0</h2>
-                <h3 class="player-name">Player</h3>
+                <p class="player-name">Player</h3>
             </div>
             <div class="score">
                 <h2 id="computer-score" class="score">0</h2>
-                <h3 class="player-name">Computer</h3>
+                <p class="player-name">Computer</h3>
             </div>
         </div>
-        <h1 class="result-text"></h1>
+        <h2 id="result-text">This is a placeholder</h1>
     </div>
     
     
