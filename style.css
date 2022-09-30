@@ -36,6 +36,8 @@ h1,h2,p {
     width: 100px;
 }
 
+
+
 #button-container {
     display: flex;
     justify-content: center;
@@ -54,6 +56,7 @@ h1,h2,p {
     border-style: solid;
     border-color: gold;
     border-radius: 20px;
+    transition: all 0.1s ease;
 }
 
 #results-container {
@@ -72,11 +75,35 @@ h1,h2,p {
     padding: 10px;
 }
 
-#result-text {
+#player-score-container {
+    border-style: solid;
+    border-width: 4px;
+    border-color: green;
+}
+
+#computer-score-container {
+    border-style: solid;
+    border-width: 4px;
+    border-color: yellow;
+}
+
+#round-counter {
     text-align: center;
     color: rgb(0, 51, 7);
     background-color: goldenrod;
     border-radius: 5px;
     margin: 10px;
     padding: 20px;
+}
+
+.draw {
+    background-image: linear-gradient(to right, green 50%, yellow 50%);
+}
+
+#button-container button.player-selection {
+    background-color: green;
+}
+
+#button-container button.computer-selection {
+    background-color: yellow;
 }
